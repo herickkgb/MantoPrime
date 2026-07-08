@@ -1,4 +1,5 @@
 import { products } from "../data/products.js";
+import { PRECO_CAMISA } from "../config/commercial.js";
 
 const SITE_URL = "https://bh-mantos.com.br";
 const STORE_NAME = "BH-Mantos";
@@ -28,7 +29,14 @@ function SeoData() {
           name: STORE_NAME,
         },
         category: `${product.categoria} - ${product.tipo}`,
-        description: `Camisa de futebol ${product.nome}, modelo ${product.tipo}. Consulte disponibilidade, tamanhos e valores pelo WhatsApp.`,
+        description: `Camisa de futebol ${product.nome}, modelo ${product.tipo}. Preço ${PRECO_CAMISA}; consulte disponibilidade, tamanhos e entrega pelo WhatsApp.`,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "BRL",
+          price: "149.90",
+          availability: "https://schema.org/InStock",
+          url: `${SITE_URL}/#produto-${product.id}`,
+        },
       },
     })),
   };

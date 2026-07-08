@@ -1,4 +1,5 @@
 import { MessageCircle, PackageCheck, Ruler, ShoppingBag } from "lucide-react";
+import { PROMO_SEGUNDA_COMPLETA } from "../config/commercial.js";
 
 const steps = [
   {
@@ -15,7 +16,7 @@ const steps = [
   },
   {
     title:
-      "Receba no WhatsApp os valores, disponibilidade, entrega e seu brinde surpresa.",
+      `Confirme disponibilidade, entrega e a promoção: ${PROMO_SEGUNDA_COMPLETA}`,
     icon: PackageCheck,
   },
 ];

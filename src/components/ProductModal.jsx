@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { Gift, MessageCircle, Minus, Plus, ShoppingBag, X } from "lucide-react";
+import {
+  PARCELAMENTO_CAMISA,
+  PRECO_CAMISA,
+  PROMO_SEGUNDA_COMPLETA,
+} from "../config/commercial.js";
 
 function ProductModal({ product, onClose, onAddToCart, onDirectOrder }) {
   const [selectedImage, setSelectedImage] = useState(product.imagens[0]);
@@ -107,9 +112,14 @@ function ProductModal({ product, onClose, onAddToCart, onDirectOrder }) {
           </div>
           <p className="team-name">{product.time}</p>
           <h2 id="product-modal-title">{product.nome}</h2>
+          <div className="modal-price">
+            <strong>{product.preco || PRECO_CAMISA}</strong>
+            <span>{PARCELAMENTO_CAMISA}</span>
+            <small>{PROMO_SEGUNDA_COMPLETA}</small>
+          </div>
           <p className="modal-copy">
             Modelo selecionado com atendimento direto pelo WhatsApp para
-            confirmar valores, disponibilidade, entrega e formas de pagamento.
+            confirmar disponibilidade, entrega e formas de pagamento.
           </p>
 
           <div className="modal-size-block">
@@ -159,7 +169,7 @@ function ProductModal({ product, onClose, onAddToCart, onDirectOrder }) {
 
           <div className="modal-gift">
             <Gift size={19} aria-hidden="true" />
-            <span>Brinde surpresa incluso na compra de uma camisa.</span>
+            <span>{PROMO_SEGUNDA_COMPLETA}</span>
           </div>
 
           <div className="modal-actions">

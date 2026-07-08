@@ -1,3 +1,9 @@
+import {
+  PARCELAMENTO_CAMISA,
+  PRECO_CAMISA,
+  PROMO_SEGUNDA_COMPLETA,
+} from "../config/commercial.js";
+
 export const WHATSAPP_NUMERO = "5531995309630";
 
 const criarLinkWhatsApp = (mensagem) =>
@@ -11,7 +17,10 @@ export const criarMensagemContato = () =>
   [
     "Olá! Quero falar com a BH-Mantos.",
     "",
-    "Pode me passar informações sobre camisas disponíveis, tamanhos, valores e prazo de entrega?",
+    `Vi que a camisa está por ${PRECO_CAMISA} ${PARCELAMENTO_CAMISA}.`,
+    PROMO_SEGUNDA_COMPLETA,
+    "",
+    "Pode me passar informações sobre camisas disponíveis, tamanhos e prazo de entrega?",
   ].join("\n");
 
 export const criarMensagemProduto = (produto, tamanho, quantidade = 1) =>
@@ -24,8 +33,11 @@ export const criarMensagemProduto = (produto, tamanho, quantidade = 1) =>
     `Modelo: ${produto.tipo}`,
     `Tamanho: ${tamanho}`,
     `Quantidade: ${quantidade}`,
+    `Preço informado no site: ${produto.preco || PRECO_CAMISA} ${PARCELAMENTO_CAMISA}`,
     "",
-    "Também quero saber sobre o brinde surpresa, valores, disponibilidade e prazo de entrega.",
+    PROMO_SEGUNDA_COMPLETA,
+    "",
+    "Também quero saber sobre disponibilidade, prazo de entrega e formas de pagamento.",
   ].join("\n");
 
 export const criarMensagemPedido = (itens, observacao = "") => {
@@ -39,6 +51,7 @@ export const criarMensagemPedido = (itens, observacao = "") => {
           `Modelo: ${item.tipo}`,
           `Tamanho: ${item.tamanho}`,
           `Quantidade: ${item.quantidade}`,
+          `Preço informado no site: ${item.preco || PRECO_CAMISA} ${PARCELAMENTO_CAMISA}`,
         ].join("\n"),
     )
     .join("\n\n");
@@ -53,9 +66,10 @@ export const criarMensagemPedido = (itens, observacao = "") => {
     "Observação do cliente:",
     observacao.trim() || "Sem observação.",
     "",
-    "Brinde:",
-    "Tenho direito ao brinde surpresa na compra de uma camisa.",
+    "Condições informadas no site:",
+    `Camisa por ${PRECO_CAMISA} ${PARCELAMENTO_CAMISA}.`,
+    PROMO_SEGUNDA_COMPLETA,
     "",
-    "Pode me passar valores, disponibilidade, prazo de entrega e formas de pagamento?",
+    "Pode me passar disponibilidade, prazo de entrega e formas de pagamento?",
   ].join("\n");
 };

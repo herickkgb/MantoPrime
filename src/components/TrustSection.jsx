@@ -11,7 +11,7 @@ const trustItems = [
   { title: "Atendimento direto no WhatsApp", icon: MessageCircle },
   { title: "Catálogo organizado por time", icon: ListChecks },
   { title: "Modelos nacionais e europeus", icon: Plane },
-  { title: "Compra com brinde surpresa", icon: Gift },
+  { title: "Segunda camisa com desconto + brinde", icon: Gift },
   { title: "Tamanhos confirmados antes do pedido", icon: Ruler },
   { title: "Experiência mobile rápida", icon: Smartphone },
 ];

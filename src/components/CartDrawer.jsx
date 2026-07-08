@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
+import {
+  PARCELAMENTO_CAMISA,
+  PRECO_CAMISA,
+  PROMO_SEGUNDA_COMPLETA,
+} from "../config/commercial.js";
 
 function CartDrawer({
   isOpen,
@@ -70,6 +75,9 @@ function CartDrawer({
                     <small>
                       {item.categoria} · {item.tipo} · Tamanho {item.tamanho}
                     </small>
+                    <small>
+                      {item.preco || PRECO_CAMISA} {PARCELAMENTO_CAMISA}
+                    </small>
                     <div className="cart-controls">
                       <button
                         className="icon-button"
@@ -113,8 +121,10 @@ function CartDrawer({
             </label>
 
             <div className="cart-note">
-              <strong>Valores confirmados no atendimento.</strong>
-              <span>Brinde surpresa incluso na compra de uma camisa.</span>
+              <strong>
+                Camisa por {PRECO_CAMISA} {PARCELAMENTO_CAMISA}.
+              </strong>
+              <span>{PROMO_SEGUNDA_COMPLETA}</span>
             </div>
 
             <button

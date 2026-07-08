@@ -6,6 +6,11 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import {
+  PARCELAMENTO_CAMISA,
+  PRECO_CAMISA,
+  PROMO_SEGUNDA_COMPLETA,
+} from "../config/commercial.js";
 
 function Hero({ destaqueProdutos, totalProducts, onCatalogClick, onWhatsAppClick }) {
   const stageProducts = destaqueProdutos.slice(0, 4);
@@ -14,7 +19,8 @@ function Hero({ destaqueProdutos, totalProducts, onCatalogClick, onWhatsAppClick
   const marqueeItems = [
     "Brasileirão Série A",
     "Clubes europeus",
-    "Brinde surpresa",
+    `${PRECO_CAMISA} ${PARCELAMENTO_CAMISA}`,
+    "2 camisas: segunda por R$ 109,90",
     "Atendimento no WhatsApp",
     "Tamanhos sob consulta",
   ];
@@ -44,8 +50,8 @@ function Hero({ destaqueProdutos, totalProducts, onCatalogClick, onWhatsAppClick
               e região
             </span>
             <span>
-              <strong>100%</strong>
-              direto no WhatsApp
+              <strong>6x</strong>
+              sem juros
             </span>
           </div>
 
@@ -66,7 +72,7 @@ function Hero({ destaqueProdutos, totalProducts, onCatalogClick, onWhatsAppClick
 
           <div className="hero-gift">
             <Gift size={20} aria-hidden="true" />
-            <span>Na compra de uma camisa, ganhe um brinde surpresa.</span>
+            <span>{PROMO_SEGUNDA_COMPLETA}</span>
           </div>
         </div>
 
@@ -101,9 +107,9 @@ function Hero({ destaqueProdutos, totalProducts, onCatalogClick, onWhatsAppClick
             <div className="showcase-footer">
               <span>
                 <BadgeCheck size={16} aria-hidden="true" />
-                Consulta rápida
+                {PRECO_CAMISA}
               </span>
-              <span>Valores no atendimento</span>
+              <span>{PARCELAMENTO_CAMISA}</span>
             </div>
           </div>
         </div>
@@ -122,10 +128,10 @@ function Hero({ destaqueProdutos, totalProducts, onCatalogClick, onWhatsAppClick
 
       <div className="gift-banner">
         <div>
-          <strong>Comprou uma camisa? Ganhe um brinde surpresa.</strong>
+          <strong>Promoção especial: na compra de 2, a segunda sai por R$ 109,90.</strong>
           <span>
-            O brinde é enviado conforme disponibilidade e confirmado no
-            atendimento.
+            Camisa avulsa por {PRECO_CAMISA} {PARCELAMENTO_CAMISA}. Comprando
+            2 camisas, ainda tem brinde surpresa.
           </span>
         </div>
         <Gift size={28} aria-hidden="true" />

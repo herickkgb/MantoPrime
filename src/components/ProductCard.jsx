@@ -1,5 +1,10 @@
 import { useState } from "react";
 import { Eye, MessageCircle, ShoppingBag } from "lucide-react";
+import {
+  PARCELAMENTO_CAMISA,
+  PRECO_CAMISA,
+  PROMO_SEGUNDA_RESUMIDA,
+} from "../config/commercial.js";
 
 function ProductCard({ product, onAddToCart, onOpenDetails, onDirectOrder }) {
   const [selectedSize, setSelectedSize] = useState("");
@@ -106,8 +111,9 @@ function ProductCard({ product, onAddToCart, onOpenDetails, onDirectOrder }) {
         <p className="team-name">
           {product.time} · {product.tipo}
         </p>
-        <p className="price-label">Consultar no WhatsApp</p>
-        <p className="price-helper">Valores confirmados no atendimento.</p>
+        <p className="price-label">{product.preco || PRECO_CAMISA}</p>
+        <p className="price-helper">{PARCELAMENTO_CAMISA}</p>
+        <p className="promo-helper">{PROMO_SEGUNDA_RESUMIDA}</p>
 
         <button
           className="mobile-choose-button"

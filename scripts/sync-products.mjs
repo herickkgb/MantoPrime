@@ -100,6 +100,35 @@ const collator = new Intl.Collator("pt-BR", {
 
 const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 const defaultSizes = ["P", "M", "G", "GG", "XG", "2XG"];
+const defaultPrice = "R$ 149,90";
+const defaultPriceValue = 149.9;
+const secondShirtPromotionPrice = "R$ 109,90";
+const secondShirtPromotionPriceValue = 109.9;
+const commercialSearchTerms = [
+  "R$ 149,90",
+  "149,90",
+  "149.90",
+  "149",
+  "cento e quarenta e nove",
+  "6x",
+  "seis vezes",
+  "sem juros",
+  "parcelamento",
+  "R$ 109,90",
+  "109,90",
+  "109.90",
+  "109",
+  "cento e nove",
+  "promoção",
+  "promocao",
+  "promo",
+  "duas camisas",
+  "2 camisas",
+  "segunda camisa",
+  "segunda por",
+  "brinde",
+  "brinde surpresa",
+];
 
 function listDirectories(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -185,9 +214,10 @@ function buildSearchTerms({
   folderName,
   modelSlug,
   productName,
-  type,
-  price,
-  colors,
+    type,
+    price,
+    promotionPrice,
+    colors,
 }) {
   const categoryTerms =
     sectionDir === "serie-a"
@@ -208,6 +238,8 @@ function buildSearchTerms({
     ...categoryTerms,
     type,
     price,
+    promotionPrice,
+    ...commercialSearchTerms,
     "preco",
     "preço",
     "valor",
@@ -289,7 +321,7 @@ function collectProducts() {
         const modelSlug = getModelSlug(teamSlug, folderName);
         const productName = buildName(teamName, modelSlug);
         const type = inferType(modelSlug);
-        const price = "Consultar";
+        const price = defaultPrice;
         const colors = inferColors(modelSlug, folderName);
 
         products.push({
@@ -298,6 +330,9 @@ function collectProducts() {
           nome: productName,
           tipo: type,
           preco: price,
+          precoValor: defaultPriceValue,
+          precoSegundaCamisa: secondShirtPromotionPrice,
+          precoSegundaCamisaValor: secondShirtPromotionPriceValue,
           cores: colors,
           termosBusca: buildSearchTerms({
             sectionDir: section.dir,
@@ -309,6 +344,7 @@ function collectProducts() {
             productName,
             type,
             price,
+            promotionPrice: secondShirtPromotionPrice,
             colors,
           }),
           brinde: true,

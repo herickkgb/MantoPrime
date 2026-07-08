@@ -90,6 +90,9 @@ function App() {
           product.categoria,
           product.tipo,
           product.preco,
+          product.precoValor,
+          product.precoSegundaCamisa,
+          product.precoSegundaCamisaValor,
           ...(product.cores ?? []),
           product.termosBusca,
         ].join(" "),
@@ -126,10 +129,7 @@ function App() {
       }
 
       if (filters.ordem === "preco") {
-        return String(a.preco).localeCompare(String(b.preco), "pt-BR", {
-          numeric: true,
-          sensitivity: "base",
-        });
+        return (a.precoValor ?? 0) - (b.precoValor ?? 0);
       }
 
       return a.nome.localeCompare(b.nome, "pt-BR");
@@ -210,6 +210,9 @@ function App() {
           time: product.time,
           categoria: product.categoria,
           tipo: product.tipo,
+          preco: product.preco,
+          precoValor: product.precoValor,
+          precoSegundaCamisa: product.precoSegundaCamisa,
           tamanho,
           quantidade: quantidadeNormalizada,
           imagem: product.imagens[0],

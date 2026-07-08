@@ -1,4 +1,5 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { PARCELAMENTO_CAMISA, PRECO_CAMISA } from "../config/commercial.js";
 
 function FinalCTA({ onCatalogClick, onWhatsAppClick }) {
   return (
@@ -8,7 +9,8 @@ function FinalCTA({ onCatalogClick, onWhatsAppClick }) {
         <h2>Já escolheu seu manto?</h2>
         <p>
           Monte seu pedido e fale com a BH-Mantos no WhatsApp para confirmar
-          tamanhos, valores e disponibilidade.
+          tamanhos e disponibilidade. Camisa por {PRECO_CAMISA}{" "}
+          {PARCELAMENTO_CAMISA}.
         </p>
       </div>
       <div className="final-actions">
