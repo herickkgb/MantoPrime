@@ -1,0 +1,24 @@
+{
+  "name": "bh-mantos",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "brand-assets": "node scripts/generate-brand-assets.mjs",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "sync-products": "node scripts/sync-products.mjs",
+    "dev": "node scripts/sync-products.mjs && vite --host 0.0.0.0",
+    "build": "node scripts/optimize-images.mjs && node scripts/sync-products.mjs && vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "^0.35.3",
+    "vite": "^6.0.0"
+  }
+}
