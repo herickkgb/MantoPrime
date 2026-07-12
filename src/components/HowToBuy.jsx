@@ -1,23 +1,22 @@
-import { MessageCircle, PackageCheck, Ruler, ShoppingBag } from "lucide-react";
 import { PROMO_SEGUNDA_COMPLETA } from "../config/commercial.js";
 
 const steps = [
   {
     title: "Escolha sua camisa favorita no catálogo.",
-    icon: ShoppingBag,
+    icon: "/icones-instagram/como-comprar.png",
   },
   {
     title: "Selecione tamanho e quantidade.",
-    icon: Ruler,
+    icon: "/icones-instagram/tamanhos.png",
   },
   {
     title: "Adicione ao carrinho ou peça direto pelo WhatsApp.",
-    icon: MessageCircle,
+    icon: "/icones-instagram/whatsapp.png",
   },
   {
     title:
       `Confirme disponibilidade, entrega e a promoção: ${PROMO_SEGUNDA_COMPLETA}`,
-    icon: PackageCheck,
+    icon: "/icones-instagram/entregas.png",
   },
 ];
 
@@ -36,12 +35,10 @@ function HowToBuy() {
 
       <div className="steps-grid">
         {steps.map((step, index) => {
-          const Icon = step.icon;
-
           return (
             <article className="step-card" key={step.title}>
               <span className="step-number">{index + 1}</span>
-              <Icon size={24} aria-hidden="true" />
+              <img className="step-icon-image" src={step.icon} alt="" aria-hidden="true" />
               <strong>{step.title}</strong>
             </article>
           );

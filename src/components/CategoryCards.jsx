@@ -1,17 +1,17 @@
-import { ArrowRight, Globe2, Trophy } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const categories = [
   {
     name: "Série A",
     title: "Brasileirão Série A",
     description: "Modelos nacionais selecionados para quem acompanha o jogo de perto.",
-    icon: Trophy,
+    icon: "/icones-instagram/brasileirao.png",
   },
   {
     name: "Europa",
     title: "Clubes Europeus",
     description: "Camisas dos maiores clubes europeus em uma curadoria premium.",
-    icon: Globe2,
+    icon: "/icones-instagram/europa.png",
   },
 ];
 
@@ -19,7 +19,6 @@ function CategoryCards({ activeCategory, onSelectCategory }) {
   return (
     <section className="section-shell categories-section" aria-label="Categorias">
       {categories.map((category) => {
-        const Icon = category.icon;
         const isActive = activeCategory === category.name;
 
         return (
@@ -30,7 +29,7 @@ function CategoryCards({ activeCategory, onSelectCategory }) {
             onClick={() => onSelectCategory(category.name)}
           >
             <span className="category-icon">
-              <Icon size={24} aria-hidden="true" />
+              <img src={category.icon} alt="" aria-hidden="true" />
             </span>
             <span>
               <strong>{category.title}</strong>

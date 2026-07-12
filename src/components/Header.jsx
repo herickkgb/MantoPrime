@@ -43,7 +43,9 @@ function Header({
           onClick={() => runAction(() => onNavigate("inicio"))}
           aria-label="Voltar para o início"
         >
-          <span className="brand-mark">BH</span>
+          <span className="brand-mark" aria-hidden="true">
+            <img src="/icons/icon-192.png" alt="" />
+          </span>
           <span>
             <strong>{lojaNome}</strong>
             <small>{slogan}</small>

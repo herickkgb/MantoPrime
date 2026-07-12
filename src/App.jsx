@@ -25,7 +25,7 @@ import {
   criarMensagemProduto,
 } from "./utils/whatsapp.js";
 
-const LOJA_NOME = "BH-Mantos";
+const LOJA_NOME = "BH Mantos";
 const SLOGAN = "Camisas de futebol em BH e região.";
 const WHATSAPP_DISPLAY = "+55 31 99530-9630";
 const ENDERECO_LOJA =

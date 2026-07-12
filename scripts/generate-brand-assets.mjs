@@ -7,41 +7,35 @@ const projectRoot = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const publicRoot = path.join(projectRoot, "public");
 
 const colors = {
-  navy: "#0b1220",
-  navySoft: "#101827",
-  gold: "#d4af37",
-  emerald: "#10b981",
+  navy: "#0a1d3d",
+  navySoft: "#102a56",
+  gold: "#ffc107",
+  emerald: "#ffc107",
   white: "#ffffff",
   muted: "#d8dee8",
 };
 
 function iconSvg(size) {
   const border = Math.round(size * 0.06);
-  const radius = Math.round(size * 0.18);
-  const fontSize = Math.round(size * 0.29);
+  const fontSize = Math.round(size * 0.3);
 
   return `
     <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
       <rect width="${size}" height="${size}" fill="${colors.navy}"/>
-      <rect
-        x="${border}"
-        y="${border}"
-        width="${size - border * 2}"
-        height="${size - border * 2}"
-        rx="${radius}"
-        fill="${colors.navySoft}"
-        stroke="${colors.gold}"
-        stroke-width="${Math.max(4, Math.round(size * 0.025))}"
-      />
+      <path d="M ${border * 2} ${border * 1.7} L ${size / 2} ${border} L ${size - border * 2} ${border * 1.7} L ${size - border * 1.5} ${size * 0.62} L ${size / 2} ${size - border} L ${border * 1.5} ${size * 0.62} Z" fill="${colors.white}" stroke="${colors.gold}" stroke-width="${Math.max(4, Math.round(size * 0.025))}"/>
+      <path d="M ${border * 2.6} ${border * 2.4} L ${size / 2} ${border * 1.65} L ${size - border * 2.6} ${border * 2.4} L ${size - border * 2.2} ${size * 0.58} L ${size / 2} ${size - border * 1.8} L ${border * 2.2} ${size * 0.58} Z" fill="${colors.navy}"/>
+      <path d="M ${size * 0.36} ${size * 0.18} L ${size * 0.5} ${size * 0.28} L ${size * 0.64} ${size * 0.18}" fill="none" stroke="${colors.white}" stroke-width="${Math.max(4, Math.round(size * 0.035))}" stroke-linejoin="round"/>
       <text
         x="50%"
         y="54%"
         dominant-baseline="middle"
         text-anchor="middle"
-        fill="${colors.gold}"
+        fill="${colors.white}"
         font-family="Impact, Arial Narrow, Arial, Helvetica, sans-serif"
         font-size="${fontSize}"
         font-weight="900"
+        stroke="${colors.navy}"
+        stroke-width="1"
       >BH</text>
     </svg>
   `;
@@ -60,7 +54,7 @@ function ogImageSvg() {
       <path d="M780 80 L1200 -4 L1200 630 L1040 630 Z" fill="${colors.navySoft}" opacity="0.82"/>
       <rect x="74" y="84" width="98" height="98" rx="18" fill="#101827" stroke="${colors.gold}" stroke-width="4"/>
       <text x="123" y="139" dominant-baseline="middle" text-anchor="middle" fill="${colors.gold}" font-family="Impact, Arial Narrow, Arial, Helvetica, sans-serif" font-size="42" font-weight="900">BH</text>
-      <text x="76" y="298" fill="${colors.white}" font-family="Impact, Arial Narrow, Arial, Helvetica, sans-serif" font-size="92" font-weight="900">BH-Mantos</text>
+      <text x="76" y="298" fill="${colors.white}" font-family="Impact, Arial Narrow, Arial, Helvetica, sans-serif" font-size="92" font-weight="900">BH MANTOS</text>
       <text x="80" y="354" fill="${colors.muted}" font-family="Arial, Helvetica, sans-serif" font-size="34">Camisas de futebol em BH e região</text>
       <rect x="78" y="402" width="400" height="60" rx="10" fill="${colors.emerald}"/>
       <text x="278" y="441" dominant-baseline="middle" text-anchor="middle" fill="${colors.white}" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">Ver catálogo mobile</text>

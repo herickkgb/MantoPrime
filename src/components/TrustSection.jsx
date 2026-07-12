@@ -1,19 +1,10 @@
-import {
-  Gift,
-  ListChecks,
-  MessageCircle,
-  Plane,
-  Ruler,
-  Smartphone,
-} from "lucide-react";
-
 const trustItems = [
-  { title: "Atendimento direto no WhatsApp", icon: MessageCircle },
-  { title: "Catálogo organizado por time", icon: ListChecks },
-  { title: "Modelos nacionais e europeus", icon: Plane },
-  { title: "Segunda camisa com desconto + brinde", icon: Gift },
-  { title: "Tamanhos confirmados antes do pedido", icon: Ruler },
-  { title: "Experiência mobile rápida", icon: Smartphone },
+  { title: "Atendimento direto no WhatsApp", icon: "/icones-instagram/whatsapp.png" },
+  { title: "Clientes atendidos com atenção", icon: "/icones-instagram/clientes.png" },
+  { title: "Modelos nacionais e europeus", icon: "/icones-instagram/europa.png" },
+  { title: "Segunda camisa com desconto + brinde", icon: "/icones-instagram/brindes.png" },
+  { title: "Tamanhos confirmados antes do pedido", icon: "/icones-instagram/tamanhos.png" },
+  { title: "Loja física em Santa Luzia", icon: "/icones-instagram/loja-fisica.png" },
 ];
 
 function TrustSection() {
@@ -27,11 +18,9 @@ function TrustSection() {
 
         <div className="trust-grid">
           {trustItems.map((item) => {
-            const Icon = item.icon;
-
             return (
               <article className="trust-card" key={item.title}>
-                <Icon size={23} aria-hidden="true" />
+                <img className="trust-icon-image" src={item.icon} alt="" aria-hidden="true" />
                 <strong>{item.title}</strong>
               </article>
             );

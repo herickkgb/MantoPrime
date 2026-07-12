@@ -5,7 +5,10 @@ function Footer({ whatsapp, endereco }) {
     <footer className="site-footer">
       <div className="footer-inner">
         <div>
-          <strong>BH-Mantos</strong>
+          <span className="footer-brand-line">
+            <img src="/icons/icon-192.png" alt="" aria-hidden="true" />
+            <strong>BH Mantos</strong>
+          </span>
           <span>Camisas de futebol em BH e região metropolitana.</span>
         </div>
         <div>
